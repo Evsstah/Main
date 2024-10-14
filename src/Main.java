@@ -386,6 +386,8 @@ public class Main {
                 new_arr[count++] = i;
             }
         }
-        return new_arr;
+        int[] last_arr = new int[count];
+        System.arraycopy(new_arr, 0, last_arr, 0, count);
+        return last_arr;
     }
 }
