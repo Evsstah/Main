@@ -6,95 +6,172 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.println("Выберите задание:");
+            System.out.println("1. Задание 1");
+            System.out.println("2. Задание 2");
+            System.out.println("3. Задание 3");
+            System.out.println("4. Задание 4");
+            System.out.println("0. Выход");
+
+            int choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    task1(scanner);
+                    break;
+                case 2:
+                    task2(scanner);
+                    break;
+                case 3:
+                    task3(scanner);
+                    break;
+                case 4:
+                    task4(scanner);
+                    break;
+                case 0:
+                    return;
+                default:
+                    System.out.println("Неверный выбор. Попробуйте еще раз.");
+            }
+        }
+    }
+
+    private static void task1(Scanner scanner) {
         Main n = new Main();
         // 1 Задание
         System.out.println("Решение 1 задания:\n");
 
         // Решение первой задачи
         System.out.println("1 задача:");
-        double x = 5.25;
-        System.out.println("Получение дробной части числа " + x + ".");
-        System.out.printf("Ответ: " + "%.2f%n", n.fraction(x)); // Оставляем только 2 знака после запятой
+        System.out.println("Получение дробной части числа.");
+        System.out.println("Введите дробное число:");
+        double x = scanner.nextInt();
+        System.out.printf("Ответ: " + "%.2f%n", n.fraction(x));
 
         // Решения третьей задачи
-        System.out.println("\n3 задача:");
-        System.out.println("Получение числа из символа.");
-        System.out.println("Ответ: " + n.charToNum());
+
 
         // Решение пятой задачи
         System.out.println("\n5 задача:");
         System.out.println("Проверка: двузначное число или нет?");
-        System.out.println("Ответ: " + n.is2Digits());
+        System.out.print("Введите число для проверки: ");
+        int x1 = scanner.nextInt();
+        System.out.println("Ответ: " + n.is2Digits(x1));
 
         // Решение седьмой задачи
         System.out.println("\n7 задача:");
         System.out.println("Проверка входа числа в диапазон. ");
-        System.out.println("Ответ: " + n.isInRange());
+        System.out.println("Введите левую границу диапазона:");
+        int a = scanner.nextInt();
+        System.out.println("Введите правую границу диапазона:");
+        int b = scanner.nextInt();
+        System.out.print("Введите число для проверки в этом диапазоне: ");
+        int num = scanner.nextInt();
+        System.out.println("Ответ: " + n.isInRange(a, b, num));
 
 
         // Решения девятой задачи
         System.out.println("\n9 задача:");
         System.out.println("Проверка равенства трех чисел.");
-        System.out.println("Ответ: " + n.isEqual());
+        System.out.println("Введите первое число:");
+        int a1 = scanner.nextInt();
+        System.out.println("Введите второе число:");
+        int b1 = scanner.nextInt();
+        System.out.println("Введите третье число:");
+        int c = scanner.nextInt();
+        System.out.println("Ответ: " + n.isEqual(a1, b1, c));
+    }
 
+    private static void task2(Scanner scanner) {
+        Main n = new Main();
         // 2 Задание
         System.out.println("\nРешение 2 задания:");
 
         // Решение первой задачи
         System.out.println("\n1 задача:");
         System.out.println("Получение модуля числа.");
-        System.out.println("Ответ: " + n.abs());
+        System.out.print("Введите число: ");
+        int x = scanner.nextInt();
+        System.out.println("Ответ: " + n.abs(x));
 
         // Решение третьей задачи
         System.out.println("\n3 задача:");
         System.out.println("Проверка: делится ли число на 3 или на 5?");
-        System.out.println("Ответ: " + n.is35());
+        System.out.print("Введите число для проверки: ");
+        int x1 = scanner.nextInt();
+        System.out.println("Ответ: " + n.is35(x1));
 
         // Решение пятой задачи
         System.out.println("\n5 задача:");
         System.out.println("Получение максимального числа из трех.");
-        System.out.println("Ответ: " + n.max3());
+        System.out.println("Введите первое число:");
+        int x2 = scanner.nextInt();
+        System.out.println("Введите второе число:");
+        int y = scanner.nextInt();
+        System.out.println("Введите третье число:");
+        int z = scanner.nextInt();
+        System.out.println("Ответ: " + n.max3(x2, y, z));
 
         // Решение седьмой задачи
         System.out.println("\n7 задача:");
         System.out.println("Получение суммы двух чисел(если сумма в диапазоне 10-19, то выводится число 20).");
-        System.out.println("Ответ: " + n.sum2());
+        System.out.print("Введите два числа для суммирования: ");
+        int x3 = scanner.nextInt(), y1 = scanner.nextInt();
+        System.out.println("Ответ: " + n.sum2(x3, y1));
 
         // Решение девятой задачи
         System.out.println("\n9 задача:");
         System.out.println("Получение дня недели по соответствующему числу.");
-        int s = 9;
-        System.out.println("Число: " + s);
-        System.out.println("Ответ: " + n.day(s));
+        System.out.print("Введите число: ");
+        int x4 = scanner.nextInt();
+        System.out.println("Ответ: " + n.day(x4));
+    }
 
+    private static void task3(Scanner scanner) {
+        Main n = new Main();
         // 3 Задание
         System.out.println("\nРешение 3 задания:");
 
         // Решение первой задачи
         System.out.println("\n1 задача:");
         System.out.println("Получение строки чисел от 0 до x.");
-        System.out.println("Ответ: " + n.listNums());
+        System.out.print("Введите число x: ");
+        int x = scanner.nextInt();
+        System.out.println("Ответ: " + n.listNums(x));
 
         // Решение третьей задачи
         System.out.println("\n3 задача:");
         System.out.println("Получение строки четных чисел от 0 до x.");
-        System.out.println("Ответ: " + n.chet());
+        System.out.print("Введите число x: ");
+        int x1 = scanner.nextInt();
+        System.out.println("Ответ: " + n.chet(x1));
 
         // Решение пятой задачи
         System.out.println("\n5 задача:");
         System.out.println("Получение количества знаков в числе x.");
-        System.out.println("Ответ: " + n.numLen());
+        System.out.print("Введите число x: ");
+        long x2 = scanner.nextInt();
+        System.out.println("Ответ: " + n.numLen(x2));
 
         // Решение седьмой задачи
         System.out.println("\n7 задача:");
         System.out.println("Получение квадрата размерностью x*x.");
-        n.square();
+        System.out.print("Введите число x: ");
+        int x3 = scanner.nextInt();
+        n.square(x3);
 
         // Решение девятой задачи
         System.out.println("\n9 задача:");
         System.out.println("Получение треугольника из символов *.");
-        n.rightTriangle();
+        System.out.print("Введите число x: ");
+        int x4 = scanner.nextInt();
+        n.rightTriangle(x4);
+    }
 
+    private static void task4(Scanner scanner) {
+        Main n = new Main();
         // 4 Задание
         System.out.println("\nРешение 4 задания:\n");
 
@@ -130,40 +207,33 @@ public class Main {
         System.out.println("Получение массива с индексами вхождений числа " + k + " в массив.");
         int[] arr_4 = {1, 2, 3, 8, 2, 2, 9};
         System.out.println("Массив:" + Arrays.toString(arr_4) + "\nОтвет: " + Arrays.toString(n.findAll(arr_4, k)));
-
     }
 
+
     // Методы для 1 Задания
+    // 1.1
     // Метод для вычисления дробной части
     public double fraction(double x) {
         int integerX = (int)x;
         return x - integerX; // Вычисление дробной части путем вычитания целой части из дробного числа
     }
 
+    // 1.3
     // Метод для преобразования символа в число
-    public int charToNum(){
-        return 0;
-    }
 
+
+    // 1.5
     // Метод для проверки, является ли число двузначным
-    public boolean is2Digits() {
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Введите число для проверки: ");
-        int x = scan.nextInt();
-        if ((x > 99 || x < 10) && (x < -99 || x > -10)) {
+    public boolean is2Digits(int x1) {
+        if ((x1 > 99 || x1 < 10) && (x1 < -99 || x1 > -10)) {
             return false;
         }
         return true;
     }
 
+    // 1.7
     // Метод для проверки, находится ли число в указанном диапазоне
-    public boolean isInRange() {
-        Scanner scan = new Scanner(System.in);
-        int a = 2, b = 15;
-        System.out.println("Левая граница диапазона: " + a);
-        System.out.println("Правая граница диапазона: " + b);
-        System.out.print("Введите число для проверки в этом диапазоне: ");
-        int num = scan.nextInt();
+    public boolean isInRange(int a, int b, int num) {
         if (a < b && num >= a && num <= b) {
             return true;
         }else if(a > b && num <= a && num >= b){
@@ -172,61 +242,50 @@ public class Main {
         return false;
     }
 
+    // 1.9
     // Метод для проверки равенства трех чисел
-    public boolean isEqual() {
-        Scanner scan = new Scanner(System.in);
-        int a = 3, b = 3, c = 3;
-        System.out.println("Первое число: " + a);
-        System.out.println("Второе число: " + b);
-        System.out.println("Третье число: " + c);
-        if (a == b && b == c) {
+    public boolean isEqual(int a1, int b1, int c) {
+        if (a1 == b1 && b1 == c) {
             return true;
         }
         return false;
     }
 
     // Методы для 2 Задания
+    // 2.1
     // Метод для вычисления модуля числа
-    public int abs() {
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Введите число: ");
-        int x = scan.nextInt();
+    public int abs(int x) {
         if (x >= 0){
             return x;
         }
         return x * -1;
     }
 
+    // 2.3
     // Метод для проверки на деление на 3 или 5
-    public boolean is35() {
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Введите число для проверки: ");
-        int x = scan.nextInt();
-        if (x % 3 == 0 && x % 5 != 0 || x % 3 != 0 && x % 5 == 0) {
+    public boolean is35(int x1) {
+        if (x1 % 3 == 0 && x1 % 5 != 0 || x1 % 3 != 0 && x1 % 5 == 0) {
             return true;
         }
         return false;
     }
 
+    // 2.5
     // Метод для нахождения максимального числа
-    public int max3() {
-        int x = 5, y = 7, z = 7;
-        System.out.println("Числа: " + x + "," + y + "," + z );
-        if (x >= y && x >= z) {
-            return x;
-        }else if (y >= x && y >= z) {
+    public int max3(int x2, int y, int z) {
+        if (x2 >= y && x2 >= z) {
+            return x2;
+        }else if (y >= x2 && y >= z) {
             return y;
         } else {
             return z;
         }
     }
 
+    // 2.7
     // Метод для суммирования чисел с условием
-    public int sum2() {
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Введите два числа для суммирования: ");
-        int x = scan.nextInt(), y = scan.nextInt();
-        int sum = x + y;
+    public int sum2(int x3, int y1) {
+        int sum = x3 + y1;
         if (sum >= 10 && sum <= 19) {
             return 20;
         }else{
@@ -234,9 +293,10 @@ public class Main {
         }
     }
 
+    // 2.9
     // Метод для определения дня недели
-    public String day(int s) {
-        switch (s) {
+    public String day(int x4) {
+        switch (x4) {
             case 1:
                 return "понедельник";
             case 2:
@@ -257,12 +317,10 @@ public class Main {
     }
 
     // Методы для 3 Задания
+    // 3.1
     // Метод для получения строки чисел от 0 до x
-    public String listNums() {
+    public String listNums(int x) {
         StringBuilder str = new StringBuilder();
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Введите число x: ");
-        int x = scan.nextInt();
         for (int i = 0; i <= x; i++) {
             if (i > 0) {
                 str.append(" ");
@@ -272,13 +330,11 @@ public class Main {
         return str.toString();
     }
 
+    // 3.3
     // Метод для получения строки четных чисел от 0 до x
-    public String chet() {
+    public String chet(int x1) {
         StringBuilder str = new StringBuilder();
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Введите число x: ");
-        int x = scan.nextInt();
-        for (int i = 0; i <= x; i += 2) {
+        for (int i = 0; i <= x1; i += 2) {
             if (i > 0) {
                 str.append(" ");
             }
@@ -287,40 +343,34 @@ public class Main {
         return str.toString();
     }
 
+    // 3.5
     // Метод для получения количества знаков в числе x
-    public int numLen() {
-        StringBuilder str = new StringBuilder();
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Введите число x: ");
-        long x = scan.nextInt();
+    public int numLen(long x2) {
         int count = 0;
-        while (x != 0) {
-            x = x / 10;
+        while (x2 != 0) {
+            x2 = x2 / 10;
             count++;
         }
         return count;
     }
 
+    // 3.7
     // Метод для получения квадрата размерностью x*x
-    public void square(){
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Введите число x: ");
-        int x = scan.nextInt();
-        for (int i = 0; i < x; i++) {
-            for (int j = 0; j < x; j++) {
+    public void square(int x3){
+        for (int i = 0; i < x3; i++) {
+            for (int j = 0; j < x3; j++) {
                 System.out.print("*");
             }
             System.out.println();
         }
     }
+
+    // 3.9
     // Метод для получения треугольника из символов *
-    public void rightTriangle() {
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Введите число x: ");
-        int x = scan.nextInt();
-        for (int i = 1; i <= x; i++) {
+    public void rightTriangle(int x4) {
+        for (int i = 1; i <= x4; i++) {
             // Вывод пробелов
-            for (int j = 0; j < x - i; j++) {
+            for (int j = 0; j < x4 - i; j++) {
                 System.out.print("  ");
             }
             // Вывод звездочек
@@ -332,6 +382,7 @@ public class Main {
     }
 
     // Методы для 4 Задания
+    // 4.1
     // Метод для получения индекса первого вхождения числа в массив
     public int findFirst(int[] arr, int x) {
         for (int i = 0; i < arr.length; i++) {
@@ -342,6 +393,7 @@ public class Main {
         return -1;
     }
 
+    // 4.3
     // Метод для получения наибольшего числа из массива по модулю
     public int maxAbs(int[] arr, int x) {
         int max = Integer.MIN_VALUE;
@@ -356,6 +408,7 @@ public class Main {
         return max;
     }
 
+    // 4.5
     // Метод для получения нового массива со значениями двух данных массивов
     public int[] add(int[] arr, int[] ins, int pos) {
         int[] new_arr = new int[arr.length + ins.length];
@@ -368,6 +421,7 @@ public class Main {
         return new_arr;
     }
 
+    // 4.7
     // Метод для получения массива со значениями в обратном порядке
     public int[] reverseBack(int[] arr) {
         int[] new_arr = new int[arr.length];
@@ -377,6 +431,7 @@ public class Main {
         return new_arr;
     }
 
+    // 4.9
     // Метод для получения массива с индексами вхождений числа в массив
     public int[] findAll(int[] arr, int k) {
         int count = 0;
@@ -386,8 +441,6 @@ public class Main {
                 new_arr[count++] = i;
             }
         }
-        int[] last_arr = new int[count];
-        System.arraycopy(new_arr, 0, last_arr, 0, count);
-        return last_arr;
+        return new_arr;
     }
 }
